@@ -39,7 +39,7 @@ def test_scaled_dot_product_attention_shapes_and_row_sums(attention_head):
     assert out.shape == (b, t, d)
     assert w.shape == (b, t, t)
     # rows of attention weights should sum to 1
-    row_sums = w.sum(dim=-1)
+    row_sums = w.sum(dim=-1) #no entiendo pq son las columnas las que tienen que sumar 1, srgún las diapos serían las filas?
     assert torch.allclose(row_sums, torch.ones_like(row_sums), atol=1e-6)
 
 
